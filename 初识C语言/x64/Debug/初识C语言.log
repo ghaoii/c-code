@@ -1,0 +1,6 @@
+﻿  add.cpp
+  test_c.cpp
+X:\Parallels Desktop 17（M1）\C语言\初识C语言\初识C语言\test_c.cpp(303,9): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“size_t”
+X:\Parallels Desktop 17（M1）\C语言\初识C语言\初识C语言\test_c.cpp(303,9): message : 请考虑在格式字符串中使用“%zd”
+  正在生成代码...
+  初识C语言.vcxproj -> X:\Parallels Desktop 17（M1）\C语言\初识C语言\x64\Debug\初识C语言.exe
