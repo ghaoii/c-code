@@ -251,31 +251,156 @@
 //1+1+1+my_strlen("\0")
 //1+1+1=3
 
-int my_strlen(char* str)
-{
-	if (*str != '\0')
-		return 1 + my_strlen(str + 1);
-	else
-		return 0;
-}
-
-//int my_strlen(char* str)//该函数创建了临时变量
+//int my_strlen(char* str)
 //{
-//	int count = 0;
-//	while (*str != '\0')
-//	{
-//		count++;
-//		str++;
-//	}
-//	return count;
+//	if (*str != '\0')
+//		return 1 + my_strlen(str + 1);
+//	else
+//		return 0;
+//}
+//
+////int my_strlen(char* str)//该函数创建了临时变量
+////{
+////	int count = 0;
+////	while (*str != '\0')
+////	{
+////		count++;
+////		str++;
+////	}
+////	return count;
+////}
+//
+//int main()
+//{
+//	char arr[] = "bit";
+//	//模拟实现strlen函数
+//	int len = my_strlen(arr);
+//	printf("len = %d", len);
+//	return 0;
 //}
 
-int main()
-{
-	char arr[] = "bit";
-	//模拟实现strlen函数
-	int len = my_strlen(arr);
-	printf("len = %d", len);
-	return 0;
-}
+//求n的阶乘
+
+//int Fca1(int n)//循环的办法
+//{
+//	int i = 0;
+//	int ret = 0;
+//	for (i = 1; i <= n; i++)
+//	{
+//		ret *= i;
+//	}
+//	return ret;
+//}
+//
+//int Fca2(int n)//递归的办法
+//{
+//	if (n <= 1)
+//		return 1;
+//	else
+//		return n * Fca2(n - 1);
+//}
+//
+//int main()
+//{
+//	//求n的阶乘
+//	int  n = 0;
+//	int ret = 0;
+//	scanf("%d", &n);
+//	//ret = Fca1(n);
+//	ret = Fca2(n);
+//	printf("%d! = %d\n", n, ret);
+//	return 0;
+//}
+
+//求第n个斐波那契数（不考虑溢出）
+//1 1 2 3 5 8 13 21 34 55   前两个数等于第三个数
+
+int count = 0;//全局变量,因此函数里的count的值可以传出来
+
+//int Fib(int n)//递归求解
+//{
+//	if (n == 3)//测试第三个斐波那契数计算次数
+//	{
+//		count++;
+//	}
+//	if (n <= 2)
+//		return 1;
+//	else
+//		return Fib(n - 1) + Fib(n - 2);
+//}
+//50
+//49 48
+//48 47 47 46
+//47 46 46 45 46 45 45 44
+//计算量庞大，且重复计算过多
+
+//int Fib(int n)//迭代方法
+//{
+//	int a = 1;
+//	int b = 1;
+//	int c = 1;
+//	while (n > 2)
+//	{
+//		c = a + b;
+//		a = b;
+//		b = c;
+//		n--;
+//	}
+//	return c;
+//}
+//
+//int main()
+//{
+//	int n = 0;
+//	int ret = 0;
+//	scanf("%d", &n);
+//	ret = Fib(n);
+//	printf("ret = %d\n", ret);
+//	return 0;
+//}
+
+//汉诺塔问题
+
+//void Hanoi(int n, char A, char B, char C)//以B为终点
+//{
+//	if (n == 1)
+//	{
+//		printf("%d#: %c--->%c\n", n, A, B);
+//	}
+//	else
+//	{
+//		Hanoi(n - 1, A, C, B);
+//		printf("%d#: %c--->%c\n", n, A, B);
+//		Hanoi(n - 1, C, B, A);
+//	}
+//}
+
+//void Hanoi(int n, char A, char B, char C)//以C为终点
+//{
+//	if (n == 1)
+//	{
+//		printf("%d#: %c--->%c\n", n, A, C);
+//	}
+//	else
+//	{
+//		Hanoi(n - 1, A, C, B);
+//		printf("%d#: %c--->%c\n", n, A, C);
+//		Hanoi(n - 1, B, A, C);
+//	}
+//}
+//
+//
+//int main()
+//{
+//	int n = 0;
+//	char A = 'A';
+//	char B = 'B';
+//	char C = 'C';
+//	printf("请输入碟子的个数:>");
+//	scanf("%d", &n);
+//	Hanoi(n, A, B, C);
+//	return 0;
+//}
+
+//青蛙跳台问题
 
