@@ -1,0 +1,4 @@
+﻿  test_c.cpp
+C:\c-code\数组\数组\test_c.cpp(1,1): warning C4005: “_CRT_SECURE_NO_WARNINGS”: 宏重定义
+C:\c-code\数组\数组\test_c.cpp : message : 参见“_CRT_SECURE_NO_WARNINGS”的前一个定义
+  数组.vcxproj -> C:\c-code\数组\Debug\数组.exe
