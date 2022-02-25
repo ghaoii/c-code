@@ -144,21 +144,75 @@
 //	return 0;
 //}
 
-int main()
-{
-	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
-
-	printf("%p\n", arr);
-	printf("%p\n", arr+1);
-
-	printf("%p\n", &arr[0]);
-	printf("%p\n", &arr[0]+1);
-
-	printf("%p\n", &arr);//虽然&arr的值看起来像首元素的地址，但实际上是整个数组的地址
-	printf("%p\n", &arr+1);
-
-	return 0;
-}
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+//
+//	printf("%p\n", arr);
+//	printf("%p\n", arr+1);
+//
+//	printf("%p\n", &arr[0]);
+//	printf("%p\n", &arr[0]+1);
+//
+//	printf("%p\n", &arr);//虽然&arr的值看起来像首元素的地址，但实际上是整个数组的地址
+//	printf("%p\n", &arr+1);
+//
+//	return 0;
+//}
 //比较发现，前两种+1取地址后，都指向arr[1]了
 //而&arr+1的地址加了40，因为arr里有10个int型，由此可见&arr取得的是整个数组的地址
+
+
+//另一种排序方法
+#include <stdlib.h>
+#include <time.h>
+
+void sort(int arr[])
+{
+	int i = 0;
+	//升序排序
+	int min = 0;
+	int tmp = 0;
+	for (i = 0; i < 10-1; i++)
+	{
+		int j = 0;
+		min = i;
+		for (j = i; j < 10; j++)
+		{
+			if (arr[min] > arr[j])
+				min = j;
+		}
+		tmp = arr[min];
+		arr[min] = arr[i];
+		arr[i] = tmp;
+	}
+}
+
+int main()
+{
+	int arr[10] = {};
+	int check[100] = {};
+	int i = 0;
+	srand((unsigned int) time(NULL));
+	for (i = 0; i < 10; i++)
+	{
+		int q = rand() % 100 + 1;
+		if (check[q - 1] == 1)
+			continue;
+		else
+		{
+			arr[i] = q;
+			check[q - 1] = 1;//把产生的随机值，在另一个数组中标记出来
+			printf("%d ", arr[i]);
+		}
+	}
+	sort(arr);
+	printf("\n");
+	printf("排序后:\n");
+	for (i = 0; i < 10; i++)
+	{
+		printf("%d ", arr[i]);
+	}
+	return 0;
+}
 
