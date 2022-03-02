@@ -371,12 +371,13 @@
 //}
 
 //实例2 
-int main() 
-{
-	char c = 1; 
-	printf("%u\n", sizeof(c)); 
-	printf("%u\n", sizeof(+c));//+c是对c的计算，因此整型提升 
-	printf("%u\n", sizeof(!c)); //逻辑反，把1变成0，但没有计算，所以也就没有整型提升
-	return 0;
-}
+//int main() 
+//{
+//	char c = 1; 
+//	printf("%u\n", sizeof(c)); 
+//	printf("%u\n", sizeof(+c));//+c是对c的计算，因此整型提升 
+//	printf("%u\n", sizeof(!c)); //逻辑反，把1变成0，但没有计算，所以也就没有整型提升
+//	return 0;
+//}
+
 
