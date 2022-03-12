@@ -116,16 +116,56 @@
 //	return 0;
 //}
 
-#include <string.h>
-int main()
-{
-	char a[1000];
-	int i;
-	for (i = 0; i < 1000; i++)
-	{
-		a[i] = -1 - i;
-	}
-	printf("%d\n", strlen(a));
-	return 0;
-}
+//#include <string.h>
+//int main()
+//{
+//	char a[1000];
+//	int i;
+//	for (i = 0; i < 1000; i++)
+//	{
+//		a[i] = -1 - i;
+//	}
+//	printf("%d\n", strlen(a));
+//	return 0;
+//}
+
+//#include <stdio.h>
+//unsigned char i = 0;
+//int main() 
+//{
+//	for (i = 0; i <= 255; i++) 
+//	{ 
+//		printf("hello world\n");
+//	} 
+//	return 0;
+//}
+
+//int main()
+//{
+//	double d = 1E10;//1*10的10次方
+//	printf("%lf\n", d);
+//	return 0;
+//}
+
+//int main()
+//{
+//	//9.0
+//	//1001.0-二进制
+//	int n = 9;
+//	float* pFloat = (float*)&n;
+//	printf("n的值为:%d\n", n);
+//	printf("*pFloat的值为:%f\n", *pFloat);
+//
+//	*pFloat = 9.0;
+//	printf("num的值为:%d\n", n);
+//	printf("*pFloat的值为:%f\n", *pFloat);
+//	return 0;
+//}
+
+//int main()
+//{
+//	float a = 5.5;
+//
+//	return 0;
+//}
 
