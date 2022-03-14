@@ -117,10 +117,97 @@
 //	return 0;
 //}
 
+//int main()
+//{
+//	char* arr[5];
+//	char* (*pa)[5] = &arr;
+//	//由于arr是指针数组，则pa指向的是数组大小为5的指针数组char*,而不是char
+//
+//	int arr2[10] = { 0 };
+//	int(*pa2)[10] = &arr2;
+//	return 0;
+//}
+//&arr表示的是数组的地址
+
+
+//数组指针的用法
+//int main()
+//{
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int(*pa)[10] = &arr;
+//	int* p = arr;
+//	int i = 0;
+//	for (i = 0; i < 10; i++)
+//	{
+//		printf("%d ", *(p + i));
+//	}
+//
+//	for (i = 0; i < 10; i++)
+//	{
+//		printf("%d ", *(*pa+i));//*pa == arr,即首元素地址
+//	}
+//	printf("\n");
+//	for (i = 0; i < 10; i++)
+//	{
+//		printf("%d ", (*pa)[i]);
+//	}
+//	return 0;
+//}
+
+//数组指针在二维数组的中应用
+//void print1(int arr[3][5], int x, int y)
+//{
+//	int i = 0;
+//	int j = 0;
+//	for (i = 0; i < x; i++)
+//	{
+//		for (j = 0; j < y; j++)
+//		{
+//			printf("%d ", arr[i][j]);
+//		}
+//		printf("\n");
+//	}
+//}
+//void print2(int(*p)[5], int x, int y)//传过来的首元素地址，是一个一维数组的地址，所以用数组指针接收
+//{
+//	int i = 0;
+//	for (i = 0; i < x; i++)
+//	{
+//		int j = 0;
+//		for (j = 0; j < y; j++)
+//		{
+//			//printf("%d ", *(*(p + i) + j));
+//			printf("%d ", (*(p + i))[j]);//p+i是每一行的一维数组的地址，*(p+i)就是每一行的首元素地址
+//			//*(p+i) = p[i]
+//			//*(*(p+i)+j) = *(p[i]+j) = (*(p+i))[j] = p[i][j]
+
+//		}
+//		printf("\n");
+//	}
+//}
+//int main()
+//{
+//	int arr[3][5] = { {1,2,3,4,5}, {2,3,4,5,6},{3,4,5,6,7} };
+//	//print1(arr, 3, 5);//arr - 数组名 - 数组名就是首元素地址（除了两个特例）
+//	print2(arr, 3, 5);
+//	//二维数组arr的首元素地址是第一行
+//	//二维数组中，每一行代表一个元素，有3行就是3个元素
+//	return 0;
+//}
+
 int main()
 {
-	char* arr[5];
-	char* (*pa)[5] = &arr;
-	//由于arr是指针数组，则pa指向的是数组大小为5的指针数组char*,而不是char
+	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+	int i = 0;
+	int* p = arr;
+	for (i = 0; i < 10; i++)
+	{
+		printf("%d ", *(p + i));
+		printf("%d ", *(arr + i));
+		printf("%d ", arr[i]);
+		printf("%d ", p[i]);
+		//四种写法都是等价的
+	}
 	return 0;
 }
+
