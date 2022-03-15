@@ -195,19 +195,305 @@
 //	return 0;
 //}
 
-int main()
+//int main()
+//{
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int i = 0;
+//	int* p = arr;
+//	for (i = 0; i < 10; i++)
+//	{
+//		printf("%d ", *(p + i));
+//		printf("%d ", *(arr + i));
+//		printf("%d ", arr[i]);
+//		printf("%d ", p[i]);
+//		//四种写法都是等价的
+//	}
+//	return 0;
+//}
+
+//int main()
+//{
+//	char ch = 'w';
+//	char* p = &ch;
+//	const char* p2 = "abcdef";//实际上是把字符串的首字母地址赋值给p2
+//
+//	int* arr[10] = { 0 };//指针数组，用来存放int*类型的指针
+//	char* arr[5];
+//
+//	int arr2[5];
+//	int(*p3)[5] = &arr2;//数组指针，指向int[10]型数组
+//	int (*p4[10])[5];//是数组，数组里存放的是数组指针
+//	return 0;
+//}
+
+//void test1(int* p)
+//{
+//}
+//void test2(char* p)
+//{
+//}
+//
+//int main()
+//{
+//	int a = 10;
+//	int* p1 = &a;
+//	test1(&a);//ok
+//	test1(p1);//ok
+//	
+//	char ch = 'w';
+//	char* pc = &ch;
+//	test2(&ch);//ok
+//	test2(pc);//ok
+//	return 0;
+//}
+
+//void test(int** p)
+//{
+//}
+//
+//int main()
+//{
+//	int* arr[10];
+//	test(arr);//指针数组传参也可以
+//	return 0;
+//}
+
+//int Add(int x, int y)
+//{
+//	int z = x+y;
+//	return z;
+//}
+//
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	int arr[10] = { 0 };
+//	int(*p)[10] = &arr;
+//
+//	printf("%d\n", Add(a, b));
+//
+//	printf("%p\n", &Add);
+//	printf("%p\n", Add);
+//	//&函数名 和 函数名 都是函数的地址
+//	//两种办法都能拿到函数的地址
+//
+//	//int* pa(int, int) = Add;//这里更像是定义函数的写法
+//	int (*pa) (int, int) = Add;//此时*先与pa结合，那么pa就是指针变量
+//							   //int(*)(int, int)就是指针类型
+//	printf("%d\n", (*pa)(2, 3));//运行的结果确实就是5
+//	return 0;
+//}
+
+//void  Print(const char* str)
+//{
+//	printf("%s\n", str);
+//}
+//
+//int main()
+//{
+//	void (*p) (const char*) = Print;
+//	(*p)("hello world");
+//	return 0;
+//}
+
+//int Add(int x, int y)
+//{
+//	int z = x+y;
+//	return z;
+//}
+//
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//
+//	int (*pa) (int, int) = Add;
+//
+//	printf("%d\n", pa(2, 3));
+//	printf("%d\n", (*pa)(2, 3));
+//	return 0;
+//}
+
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+//int Sub(int x, int y)
+//{
+//	return x - y;
+//}
+//int Mul(int x, int y)
+//{
+//	return x * y;
+//}
+//int Div(int x, int y)
+//{
+//	return x / y;
+//}
+//
+//int main()
+//{
+//	//指针数组
+//	int* arr[5];
+//	int (*pa)(int, int) = Add;
+//	//Add,Sub,Mul,Div的类型都一样，因此需要一个数组来存储
+//	//这个数组可以存放4个函数的地址 - 函数指针的数组
+//	int (*parr[4])(int, int) = { Add, Sub, Mul, Div };
+//
+//	int i = 0;
+//	for (i = 0; i < 4; i++)
+//	{
+//		printf("%d\n", parr[i](2, 3));//5 -1 6 0
+//	}
+//	return 0;
+//}
+
+
+//练习
+//char* my_strcpy(char* dest, const char* src)
+//{
+//
+//}
+////写一个函数指针pf，能够指向my_strcpy
+////写一个函数指针数组pfArr，能够存放4个my_strcpy函数的地址
+//
+//char*(*pf)(char*, const char*) = my_strcpy;
+//char* (*pfArr[4])(char*, const char*) = {my_strcpy};
+
+//计算器
+//void menu()
+//{
+//	printf("##############################\n");
+//	printf("####   1.Add      2.Sub   ####\n");
+//	printf("####   3.Mul      4.Div   ####\n");
+//	printf("####        0.exit        ####\n");
+//	printf("##############################\n");
+//}
+//
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+//int Sub(int x, int y)
+//{
+//	return x - y;
+//}
+//int Mul(int x, int y)
+//{
+//	return x * y;
+//}
+//int Div(int x, int y)
+//{
+//	return x / y;
+//}
+//利用函数指针数组写
+//int main()
+//{
+//	int input = 0;
+//	int x = 0;
+//	int y = 0;
+//	int (*pfArr[5])(int, int) = { 0, Add, Sub, Mul, Div };
+//	do
+//	{
+//		menu();
+//		printf("请输入:>");
+//		scanf("%d", &input);
+//		if (input >= 1 && input <= 4)
+//		{
+//			printf("请输入两个操作数:>");
+//			scanf("%d%d", &x, &y);
+//			printf("%d\n", pfArr[input](x, y));//也可以写作(*pfArr[i])(x, y);
+//		}
+//		else if (input == 0)
+//		{
+//			printf("退出程序\n");
+//		}
+//		else
+//		{
+//			printf("输入错误，请重新输入\n");
+//		}
+//	} while (input);
+//
+//	return 0;
+//}
+//利用回调函数
+
+//void Cala(int(*pf)(int, int))
+//{
+//	int x, y;
+//	printf("请输入两个操作数:>");
+//	scanf("%d%d", &x, &y);
+//	printf("%d\n", pf(x, y));
+//}
+//int main()
+//{
+//	int input = 0;
+//	int x = 0;
+//	int y = 0;
+//	int (*pfArr[5])(int, int) = { 0, Add, Sub, Mul, Div };
+//	do
+//	{
+//		menu();
+//		printf("请输入:>");
+//		scanf("%d", &input);
+//		switch (input)
+//		{
+//		case 1:
+//			Cala(Add);
+//			break;
+//		case 2:
+//			Cala(Sub);
+//			break;
+//		case 3:
+//			Cala(Mul);
+//			break;
+//		case 4:
+//			Cala(Div);
+//			break;
+//		case 0:
+//			printf("退出程序\n");
+//			break;
+//		default:
+//			printf("输入错误，请重新输入\n");
+//			break;
+//		}
+//	} while (input);
+//
+//	return 0;
+//}
+
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+
+//int mian()
+//{
+//	int arr[10] = { 0 };
+//	int(*p)[10] = &arr;//取出数组的地址
+//
+//	int(*pf)(int, int);
+//	int (*pfArr[4])(int, int);//函数指针数组
+//	int (*(*ppfArr)[4])(int, int) = &pfArr;//ppfArr是一个指向函数指针数组的指针
+//	//ppfArr是一个数组指针，指针指向的数组有4个元素
+//	//每个元素的类型是一个函数指针 int(*)(int, int)
+//	return 0;
+//}
+
+void print(const char* str)
 {
-	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
-	int i = 0;
-	int* p = arr;
-	for (i = 0; i < 10; i++)
-	{
-		printf("%d ", *(p + i));
-		printf("%d ", *(arr + i));
-		printf("%d ", arr[i]);
-		printf("%d ", p[i]);
-		//四种写法都是等价的
-	}
-	return 0;
+	printf("hehe:%s", str);
 }
 
+void test(void(*p)(const char*))
+{
+	printf("test\n");
+	p("bit");
+}
+
+int main()
+{
+	test(print);
+	return 0;
+}
