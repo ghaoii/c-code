@@ -1,0 +1,3 @@
+﻿  test_c.cpp
+C:\MyTest\c-code\指针、数组题目解析\指针、数组题目解析\test_c.cpp(156,9): warning C4477: “printf”: 格式字符串“%p”需要类型“void *”的参数，但可变参数 1 拥有了类型“unsigned long”
+  指针、数组题目解析.vcxproj -> C:\MyTest\c-code\指针、数组题目解析\Debug\指针、数组题目解析.exe
