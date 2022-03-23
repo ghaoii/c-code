@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "字符串+内存函数", "字符串+内存函数\字符串+内存函数.vcxproj", "{1D2C2FFF-B5BD-4BE8-A15D-3F4C77960742}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D2C2FFF-B5BD-4BE8-A15D-3F4C77960742}.Debug|x64.ActiveCfg = Debug|x64
+		{1D2C2FFF-B5BD-4BE8-A15D-3F4C77960742}.Debug|x64.Build.0 = Debug|x64
+		{1D2C2FFF-B5BD-4BE8-A15D-3F4C77960742}.Debug|x86.ActiveCfg = Debug|Win32
+		{1D2C2FFF-B5BD-4BE8-A15D-3F4C77960742}.Debug|x86.Build.0 = Debug|Win32
+		{1D2C2FFF-B5BD-4BE8-A15D-3F4C77960742}.Release|x64.ActiveCfg = Release|x64
+		{1D2C2FFF-B5BD-4BE8-A15D-3F4C77960742}.Release|x64.Build.0 = Release|x64
+		{1D2C2FFF-B5BD-4BE8-A15D-3F4C77960742}.Release|x86.ActiveCfg = Release|Win32
+		{1D2C2FFF-B5BD-4BE8-A15D-3F4C77960742}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E9A2362D-63F0-4A92-9B3B-8C78D75E5E91}
+	EndGlobalSection
+EndGlobal
