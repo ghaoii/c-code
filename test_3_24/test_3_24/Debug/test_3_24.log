@@ -1,0 +1,3 @@
+﻿  test_c.cpp
+C:\MyTest\c-code\test_3_24\test_3_24\test_c.cpp(125,2): warning C4002: 类函数宏的调用“assert”参数过多
+  test_3_24.vcxproj -> C:\MyTest\c-code\test_3_24\Debug\test_3_24.exe
