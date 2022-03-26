@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\MyTest\c-code\字符串+内存函数\Debug\字符串+内存函数.exe</FullPath>
+      <FullPath>C:\MyTest\c-code\通讯录\Debug\通讯录.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

@@ -1,0 +1,4 @@
+﻿  contact.c
+C:\MyTest\c-code\通讯录\通讯录\contact.c(102,26): warning C4090: “函数”: 不同的“const”限定符
+C:\MyTest\c-code\通讯录\通讯录\contact.c(70): warning C4715: “FindContact”: 不是所有的控件路径都返回值
+  通讯录.vcxproj -> C:\MyTest\c-code\通讯录\Debug\通讯录.exe

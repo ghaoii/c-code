@@ -7,8 +7,8 @@ void menu()
 {
 	printf("***********************************************\n");
 	printf("*********    1. add          2.del     ********\n");
-	printf("*********    1. search       2.modify  ********\n");
-	printf("*********    1. show         2.sort    ********\n");
+	printf("*********    3. search       4.modify  ********\n");
+	printf("*********    5. show         6.sort    ********\n");
 	printf("*********    0.exit                    ********\n");
 	printf("***********************************************\n");
 }
@@ -16,7 +16,9 @@ void menu()
 int main()
 {
 	int input;
-	struct PeoInfo con[MAX];
+	struct Contact con;
+	//初始化通讯录
+	InitContact(&con);
 	do
 	{
 		menu();
@@ -24,19 +26,25 @@ int main()
 		scanf("%d", &input);
 		switch (input)
 		{
-		case 1:
+		case ADD:
+			AddContact(&con);
 			break;
-		case 2:
+		case DEL:
+			DelContact(&con);
 			break;
-		case 3:
+		case SEARCH:
+			SearchContact(&con);
 			break;
-		case 4:
+		case MODIFY:
+			ModifyContact(&con);
 			break;
-		case 5:
+		case SHOW:
+			ShowContact(&con);
 			break;
-		case 6:
+		case SORT:
+			SortContact(&con);
 			break;
-		case 0:
+		case EXIT:
 			printf("退出通讯录\n");
 			break;
 		default:
