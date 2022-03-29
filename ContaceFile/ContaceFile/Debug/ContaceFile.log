@@ -1,0 +1,3 @@
+﻿  contact.c
+C:\MyTest\c-code\Contact\Contact\contact.c(231): warning C4716: “My_Sort”: 必须返回一个值
+  ContaceFile.vcxproj -> C:\MyTest\c-code\ContaceFile\Debug\ContaceFile.exe

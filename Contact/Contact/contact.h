@@ -2,6 +2,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <errno.h>
 
 #define DEFAULT_SZ 3
 #define MAX_NAME 20
@@ -18,7 +20,8 @@ enum option
 	Search,
 	Modify,
 	Show,
-	Sort
+	Sort,
+	Save
 };
 
 typedef struct PeoInfo
@@ -46,3 +49,5 @@ void SearchContact(Contact*);
 void ModifyContact(Contact*);
 void DestroyContact(Contact*);
 void SortContact(Contact*);
+void SaveContact(Contact*);
+void LoadContact(Contact*);

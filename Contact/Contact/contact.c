@@ -4,7 +4,7 @@
 
 void InitContact(Contact* ps)
 {
-	ps->data = (PeoInfo*)malloc(3 * sizeof(PeoInfo));
+	ps->data = (PeoInfo*)malloc(DEFAULT_SZ * sizeof(PeoInfo));
 	if (ps->data == NULL)
 	{
 		return;
@@ -14,6 +14,39 @@ void InitContact(Contact* ps)
 		ps->size = 0;
 		ps->capacity = DEFAULT_SZ;
 	}
+	//把文件中已经存放的通讯录中的信息，加载到通讯录中
+	LoadContact(ps);
+}
+
+void CheckCapacity(Contact*);
+void LoadContact(Contact* ps)
+{
+	PeoInfo tmp = { 0 };
+	FILE* pfRead = fopen("contact.dat", "rb");
+	if (pfRead == NULL)
+	{
+		printf("LoadContact::%s\n", strerror(errno));
+		return;
+	}
+	//读取文件放到通讯录中
+	//fread返回真实读到的元素个数，在这里要么是1，要么是0
+	//如果读到0，就说明已经取完了
+	
+	while (fread(&(ps->data[ps->size]), sizeof(PeoInfo), 1, pfRead))
+	{
+		ps->size++;
+		CheckCapacity(ps);
+	}
+	//两种办法都可以
+	/*while (fread(&tmp, sizeof(PeoInfo), 1, pfRead))
+	{
+		CheckCapacity(ps);
+		ps->data[ps->size] = tmp;
+		ps->size++;
+	}*/
+
+	fclose(pfRead);
+	pfRead = NULL;
 }
 
 void CheckCapacity(Contact* ps)
@@ -202,6 +235,27 @@ void SortContact(Contact* ps)
 	My_Sort(ps->data, ps->size, sizeof(PeoInfo), cmp_by_name);
 	printf("排序成功\n");
 }
+
+void SaveContact(Contact* ps)
+{
+	FILE* pfWrite = fopen("contact.dat", "wb");
+	if (pfWrite == NULL)
+	{
+		printf("SaveContact::%s\n", strerror(errno));
+		return;
+	}
+	//以二进制形式输入文件
+	int i = 0;
+	for (i = 0; i < ps->size; i++)
+	{
+		fwrite(&(ps->data[i]), sizeof(PeoInfo), 1, pfWrite);
+	}
+	//fwrite(ps->data, sizeof(PeoInfo), ps->size, pfWrite);//另一种写法
+
+	fclose(pfWrite);
+	pfWrite = NULL;
+}
+
 
 void DestroyContact(Contact* ps)
 {

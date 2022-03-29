@@ -9,7 +9,7 @@ void menu()
 	printf("*********    1.add        2.del    *********\n");
 	printf("*********    3.search     4.modify *********\n");
 	printf("*********    5.show       6.sort   *********\n");
-	printf("*********    0.exit                *********\n");
+	printf("*********    7.save       0.exit   *********\n");
 	printf("********************************************\n");
 }
 
@@ -48,7 +48,11 @@ int main()
 		case Sort:
 			SortContact(&con);
 			break;
+		case Save:
+			SaveContact(&con);
+			break;
 		case Exit:
+			SaveContact(&con);
 			DestroyContact(&con);
 			printf("ÍË³ö³ÌÐò!\n");
 			break;

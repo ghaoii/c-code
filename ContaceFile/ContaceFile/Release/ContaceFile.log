@@ -1,0 +1,8 @@
+﻿  contact.c
+  test.c
+  正在生成代码
+  Previous IPDB not found, fall back to full compilation.
+C:\MyTest\c-code\Contact\Contact\contact.c(231): warning C4716: “My_Sort”: 必须返回一个值
+  All 23 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  ContaceFile.vcxproj -> C:\MyTest\c-code\ContaceFile\Release\ContaceFile.exe
