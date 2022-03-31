@@ -264,21 +264,158 @@
 //	return 0;
 //}
 
-int main()
-{
-	FILE* pf = fopen("test.txt", "r");
-	if (pf == NULL)
-	{
-		return 0;
-	}
-	//1.定位文件指针
-	fseek(pf, -2, SEEK_END);
-	
-	//2.读取文件
-	int ch = fgetc(pf);
-	printf("%c\n", ch);
+//int main()
+//{
+//	FILE* pf = fopen("test.txt", "r");
+//	if (pf == NULL)
+//	{
+//		return 0;
+//	}
+//	//1.定位文件指针
+//	//fseek(pf, -2, SEEK_END);
+//	
+//	//2.读取文件
+//	int ch = fgetc(pf);
+//	//printf("%c\n", ch);
+//
+//	int pos = ftell(pf);
+//	printf("%d\n", pos);
+//
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
 
-	fclose(pf);
-	pf = NULL;
+//int main()
+//{
+//	FILE* pf = fopen("test.txt", "r");
+//	if (pf == NULL)
+//	{
+//		return 0;
+//	}
+//	
+//	int ch = fgetc(pf);
+//	printf("%c\n", ch);
+//	rewind(pf);
+//	ch = fgetc(pf);
+//	printf("%c\n", ch);
+//
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
+//int main()
+//{
+//	//EOF
+//	//feof();//EOF - end of file - 文件结束标志
+//	FILE* pf = fopen("test.txt", "r");
+//	if (pf == NULL)
+//	{
+//		return 0;
+//	}
+//	int ch = fgetc(pf);
+//	printf("%d\n", ch);
+//
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
+//int main()
+//{
+//	//strerror - 把错误码对应的错误信息的字符串地址返回
+//	//printf("%s\n", strerror(errno));
+//
+//	//perror
+//	FILE* pf = fopen("test2.txt", "r");
+//	if (!pf)
+//	{
+//		perror("open file test2.txt");
+//		return 0;
+//	}
+//
+//	fclose(pf);
+//	pf = NULL;
+//
+//	return 0;
+//}
+
+//int main()
+//{
+//	FILE* pf = fopen("test2.txt", "r");
+//	if (!pf)
+//	{
+//		perror("open file test2.txt");
+//		return 0;
+//	}
+//	//读文件
+//	int ch = 0;
+//	while ((ch = fgetc(pf)) != EOF)
+//	{
+//		putchar(ch);
+//	}
+//	if (ferror)
+//	{
+//		printf("error\n");
+//	}
+//	else if (feof)
+//	{
+//		printf("end of file\n");
+//	}
+//
+//	fclose(pf);
+//	pf = NULL;
+//
+//	return 0;
+//}
+
+enum 
+{
+	SIZE = 5
+}; 
+int main() 
+{
+
+	double a[SIZE] = { 1.,2.,3.,4.,5. };
+	FILE* fp = fopen("test.bin", "wb"); // 必须用二进制模式 
+	fwrite(a, sizeof *a, SIZE, fp); // 写 double 的数组 fclose(fp);
+
+	double b[SIZE];
+	fp = fopen("test.bin", "rb");
+	size_t ret_code = fread(b, sizeof * b, SIZE, fp); // 读 double 的数组 
+	if(ret_code == SIZE) 
+	{ 
+		puts("Array read successfully, contents: ");
+		for (int n = 0; n < SIZE; ++n)
+		{
+			printf("%f ", b[n]);
+		}
+		putchar('\n');
+	}
+	 else 
+	{ 
+		// error handling 
+		if (feof(fp))
+		{
+			printf("Error reading test.bin: unexpected end of file\n");
+		}
+		else if (ferror(fp)) 
+		{
+			perror("Error reading test.bin"); 
+		}
+
+	}
+	fclose(fp);
+	fp = NULL;
+
 	return 0;
 }
+
+typedef struct
+{
+	int a;//4
+	char b;//1
+	short c;//2
+	short d;//2
+}AA_t;//总大小是12
